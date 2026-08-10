@@ -1,6 +1,3 @@
-local rng = Random.new()
-local ai = rng:NextInteger(35, 1050)
-
 function light(tim, color0, color1)
 	local tweenservice = game:GetService("TweenService")
 	local info = TweenInfo.new(tim, Enum.EasingStyle.Linear)
@@ -36,7 +33,7 @@ local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 local entity = Spawner:Create({
 	Entity = {
 		Name = "Rebound2",
-		Asset = "https://github.com/eoyoustme/Endless-Doors/blob/main/Rebound.rbxm?raw=true",
+		Asset = "https://github.com/eliazbp92-collab/Back/raw/main/Re-Sebound.rbxm",
 		HeightOffset = 1
 	},
 	Lights = {
