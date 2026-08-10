@@ -1,3 +1,24 @@
+-- Âm thanh báo hiệu
+local cue1 = Instance.new("Sound")
+cue1.Parent = game.Workspace
+cue1.Name = "Scream"
+cue1.SoundId = "rbxassetid://9114397505"
+
+local distort = Instance.new("DistortionSoundEffect", cue1)
+distort.Level = 1
+local distort2 = Instance.new("DistortionSoundEffect", cue1)
+distort2.Level = 1
+
+local pitch = Instance.new("PitchShiftSoundEffect", cue1)
+pitch.Octave = 0.5
+local pitch2 = Instance.new("PitchShiftSoundEffect", cue1)
+pitch2.Octave = 0.5
+local pitch3 = Instance.new("PitchShiftSoundEffect", cue1)
+pitch3.Octave = 0.5
+
+cue1.Volume = 2
+cue1:Play()
+wait(3)
 ---====== Load spawner ======---
  
 local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/V2/Source.lua"))()
@@ -51,7 +72,7 @@ local entity = spawner.Create({
     },
     Death = {
         Type = "Guiding", -- "Curious"
-        Hints = {"You died to Hardcore A-60...", "He will announce his presence with a loud scream.", "Hes fast and he can rebound, so stay hidden until hes gone!", "Im Sure Youll Make it!"},
+        Hints = {"TROLLY", "RAHHHHHH.", "RAUFIEIDIGIT", "BYE STUPID"},
         Cause = ""
     }
 })
@@ -64,6 +85,8 @@ end)
  
 entity:SetCallback("OnStartMoving", function()
     print("Entity has started moving")
+	game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/elizabp92-collab/Back/refs/heads/main/Se-Sebound1"))()
 end)
  
 entity:SetCallback("OnEnterRoom", function(room, firstTime)
@@ -96,16 +119,6 @@ end)
  
 entity:SetCallback("OnDespawned", function()
     print("Entity has despawned")
-    ---====== Load achievement giver ======---
-local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/vct0721/Doors-Stuff/refs/heads/main/Other/Modifiyed%20Achivements%20Source"))()
- 
----====== Display achievement ======---
-achievementGiver({
-    Title = "I Cant Hear You",
-    Desc = "Soundproof!",
-    Reason = "Survive Silence",
-    Image = "rbxassetid://12309073114"
-})
 end)
  
 entity:SetCallback("OnDamagePlayer", function(newHealth)
